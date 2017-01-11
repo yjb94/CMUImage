@@ -46,8 +46,8 @@ extension UIImageView
             }.responseData { response in
                 progressCircle.removeFromSuperlayer()
                 if let data = response.result.value {
-                    self.image = UIImage(data: data)
-                    CMUCache.save(data, with: url)
+                    self.image = self.cropCenter(image:UIImage(data: data)!)
+                    CMUCache.save(UIImagePNGRepresentation(self.image!), with: url)
                     closure?(data)
                 }
         }
@@ -61,5 +61,24 @@ extension UIImageView
         get {
             return self.placeholder
         }
+    }
+    
+    private func cropCenter(image:UIImage) -> UIImage? {
+        var sizeRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        let sizeRatio:CGSize = CGSize(width: self.bounds.width / image.size.width,
+                                      height: self.bounds.height / image.size.height)
+        if sizeRatio.width == sizeRatio.height { return image }
+        else if sizeRatio.width > sizeRatio.height {
+            sizeRect.size.height = self.bounds.height / sizeRatio.width
+            sizeRect.origin.y = (image.size.height - sizeRect.height) / 2
+        }
+        else {
+            sizeRect.size.width = self.bounds.width / sizeRatio.height
+            sizeRect.origin.x = (image.size.width - sizeRect.width) / 2
+        }
+        
+        let imageRef:CGImage = image.cgImage!.cropping(to: sizeRect)!
+        let croppedImage:UIImage = UIImage(cgImage:imageRef)
+        return croppedImage
     }
 }
