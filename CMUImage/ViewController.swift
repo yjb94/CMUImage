@@ -16,12 +16,13 @@ class ViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        imageView1.loadImage(fromURL: "http://www.hdwallpaperspulse.com/wp-content/uploads/2013/06/high-quality-high-resolution-nature-scene-hd-wallpaper-for-windows-7-background.jpg")
-        imageView2.loadImage(fromURL: "http://hdimages.org/wp-content/uploads/2016/11/high-resolution-imges-HD10.jpg")
+//        imageView1.loadImage(fromURL: "http://www.hdwallpaperspulse.com/wp-content/uploads/2013/06/high-quality-high-resolution-nature-scene-hd-wallpaper-for-windows-7-background.jpg")
+//        imageView2.loadImage(fromURL: "http://hdimages.org/wp-content/uploads/2016/11/high-resolution-imges-HD10.jpg")
     }
 
     @IBAction func onLoad(_ sender: UIButton) {
-//        imageView1.loadImage(fromURL: "http://www.hdwallpaperspulse.com/wp-content/uploads/2013/06/high-quality-high-resolution-nature-scene-hd-wallpaper-for-windows-7-background.jpg")
+        imageView1.loadImage(fromURL: "http://cdn.wonderfulengineering.com/wp-content/uploads/2014/03/high-resolution-wallpapers-12.jpg")
+        imageView2.loadImage(fromURL: "http://hdimages.org/wp-content/uploads/2016/11/high-resolution-imges-HD10.jpg")
     }
     
     override func didReceiveMemoryWarning() {
