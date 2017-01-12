@@ -2,8 +2,7 @@
 swift image loading library - light and powerful image loader
 
 
-Load Image + Placeholder + Cache + Crop Center
-
+ Swift + Load Image + Circular Progress + Placeholder + Cache + Crop Center
 
 # Usage
 
